@@ -1,28 +1,32 @@
-# Submission Checklist — Lab 03
+# Submission Checklist - Lab 03
 
-Trước khi nộp, repo nhóm cần có:
+Student: Nguyen Thi Thanh Nha  
+Group: Nhom 8 (B1)  
+Service: IoT Ingestion
 
-```text
-contracts/<team>.openapi.yaml
-postman/collections/<team>.postman_collection.json
-postman/environments/<team>_mock.postman_environment.json
-postman/environments/<team>_local.postman_environment.json
-reports/newman-report.xml hoặc reports/newman-report.html
-checklists/reliability_checklist.md
-templates/test-case-matrix.csv
-templates/consumer-provider-handshake.md
-```
+## Required Files
 
-## Quy ước commit
+- [x] `contracts/iot-ingestion.openapi.yaml`
+- [x] `postman/collections/FIT4110_lab03_iot_ingestion.postman_collection.json`
+- [x] `postman/environments/FIT4110_lab03_mock.postman_environment.json`
+- [x] `postman/environments/FIT4110_lab03_local.postman_environment.json`
+- [x] `reports/newman-report-mock.xml`
+- [x] `reports/newman-report.html`
+- [x] `reports/contract-lint-report.txt`
+- [x] `checklists/reliability_checklist.md`
+- [x] `templates/test-case-matrix.csv`
+- [x] `templates/consumer-provider-handshake.md`
 
-Gợi ý commit cuối:
+## Notes
+
+- Mock environment is the required runnable evidence for Lab 03.
+- Local environment is prepared but depends on a real IoT Ingestion service running at `http://localhost:8000`.
+- Auth tests are skipped on mock with explicit assertions because Prism does not enforce real authentication.
+
+## Suggested Final Commit
 
 ```bash
 git add .
-git commit -m "lab03: add postman contract tests and newman report"
+git commit -m "lab03: add IoT ingestion contract tests and newman report"
 git push
 ```
-
-## Link nộp LMS
-
-Nộp link GitHub repo, không nộp file rời.

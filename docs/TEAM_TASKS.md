@@ -8,19 +8,20 @@ Mỗi nhóm có thể dùng bảng này để nhanh chóng tạo test-case matri
 
 Endpoint gợi ý:
 
-- `POST /readings`
-- `GET /readings/latest`
-- `GET /devices/{id}/readings`
+- `POST /events/sensor`
+- `POST /telemetry`
+- `GET /telemetry/{eventId}`
+- `GET /devices/{deviceId}`
 - `GET /health`
 
 Test bắt buộc:
 
-- Happy path tạo reading thành công.
-- Thiếu `device_id` → 400.
-- Sai `metric` ngoài enum → 400.
-- Không có token → 401.
-- Boundary value: nhiệt độ quá cao / quá thấp.
-- Latest readings có `items` là array.
+- Happy path nhận sensor event thành công.
+- Thiếu `deviceId` → 400/422.
+- Sai `sensorType` ngoài enum → 400/422.
+- Không có token → 401/403 trên service thật.
+- Boundary value: telemetry sát ngưỡng / vượt ngưỡng.
+- Telemetry audit có `eventId`, `measurement`, `publishedEvents`.
 - Response time dưới ngưỡng.
 
 ---

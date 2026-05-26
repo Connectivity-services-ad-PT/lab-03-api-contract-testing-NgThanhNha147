@@ -147,13 +147,13 @@ Tất cả các giá trị này phải đặt trong Postman Environment.
 | `env` | `mock` | `local` | Môi trường đang chạy test |
 | `baseUrl` | `http://localhost:4010` | `http://localhost:8000` | URL service chính |
 | `authToken` | `lab-token` | `local-dev-token` | Token hoặc API key |
-| `teamName` | `team-iot` | `team-iot` | Tên nhóm hoặc tên service |
+| `teamName` | `group-8-b1-iot-ingestion` | `group-8-b1-iot-ingestion` | Tên nhóm hoặc tên service |
 | `aiVisionMockUrl` | `http://localhost:4011` | `http://localhost:4011` | URL mock của service phụ thuộc |
 
 Ví dụ URL trong Postman:
 
 ```text
-{{baseUrl}}/readings
+{{baseUrl}}/events/sensor
 ```
 
 Ví dụ Authorization header:
@@ -290,13 +290,13 @@ Kiểm thử các luồng hợp lệ.
 Ví dụ:
 
 ```javascript
-pm.test("Status code is 201", function () {
-  pm.response.to.have.status(201);
+pm.test("Status code is 202", function () {
+  pm.response.to.have.status(202);
 });
 
-pm.test("Response has readingId", function () {
+pm.test("Response has eventId", function () {
   const json = pm.response.json();
-  pm.expect(json).to.have.property("readingId");
+  pm.expect(json).to.have.property("eventId");
 });
 ```
 
@@ -431,7 +431,7 @@ Mỗi nhóm thay contract mẫu bằng contract của service mình từ Lab 02,
 
 | Nhóm | Số test tối thiểu | Bắt buộc có |
 |---|---:|---|
-| `team-iot` | 10 | POST reading, latest reading, auth, validation, boundary, rate limit |
+| `team-iot` | 10 | POST /events/sensor, telemetry audit, device status, auth, validation, boundary, idempotency |
 | `team-camera` | 10 | upload frame, trigger analyze, invalid image, callback/mock AI Vision |
 | `team-gate` | 10 | access event, allow/deny, invalid card, auth |
 | `team-vision` | 10 | detect image, model info, invalid image_url/base64, confidence boundary |

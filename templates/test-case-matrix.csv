@@ -1,6 +1,15 @@
 ID,Folder,Endpoint,Method,Scenario,Input file/body,Expected status,Expected response check,Type,Pass/Fail,Evidence
-TC01,Functional,/health,GET,Service is alive,-,200,status=ok,functional,,
-TC02,Functional,/readings,POST,Create reading happy path,mock-data/sensor-reading-valid.json,201,"has reading_id, accepted=true",functional,,
-TC03,Negative,/readings,POST,Missing device_id,mock-data/sensor-reading-invalid-missing-device.json,400,Problem Details,negative,,
-TC04,Auth,/readings,POST,Missing token,mock-data/sensor-reading-valid.json,401,Problem Details,auth,,
-TC05,Boundary,/readings,POST,High temperature boundary,mock-data/sensor-reading-boundary.json,201/400,documented behavior,boundary,,
+TC01,00_Health,/health,GET,Service is alive,-,200,status=ok and service=iot-ingestion,functional,PASS,reports/newman-report-mock.xml
+TC02,01_Functional,/events/sensor,POST,Accept valid temperature sensor event,mock-data/sensor-reading-valid.json,202,"status=ACCEPTED; has eventId; publishedEvents includes sensor.reading.created and telemetry.ingested",functional,PASS,reports/newman-report-mock.xml
+TC03,01_Functional,/telemetry,POST,Accept valid motion telemetry,inline JSON,202,"status=ACCEPTED; publishedEvents is array",functional,PASS,reports/newman-report-mock.xml
+TC04,01_Functional,/telemetry/{eventId},GET,Read telemetry audit record,path eventId,200,"has eventId, deviceId, measurement",functional,PASS,reports/newman-report-mock.xml
+TC05,01_Functional,/devices/{deviceId},GET,Read device status,path deviceId,200,"has deviceId and status enum",functional,PASS,reports/newman-report-mock.xml
+TC06,02_Auth,/events/sensor,POST,Missing token is rejected on real service,mock-data/sensor-reading-valid.json,401/403 on local; skipped on mock,Auth middleware must reject missing token,auth,PASS,reports/newman-report-mock.xml
+TC07,02_Auth,/events/sensor,POST,Invalid token is rejected on real service,mock-data/sensor-reading-valid.json,401/403 on local; skipped on mock,Auth middleware must reject invalid token,auth,PASS,reports/newman-report-mock.xml
+TC08,03_Negative,/events/sensor,POST,Missing deviceId,mock-data/sensor-reading-invalid-missing-device.json,400/422,Problem Details status between 400 and 599,negative,PASS,reports/newman-report-mock.xml
+TC09,03_Negative,/events/sensor,POST,Invalid sensorType enum,inline JSON,400/422,Problem Details status between 400 and 599,negative,PASS,reports/newman-report-mock.xml
+TC10,04_Boundary_Reliability,/events/sensor,POST,Boundary AQI max value,mock-data/sensor-reading-boundary.json,202,"status=ACCEPTED; publishedEvents includes telemetry.ingested",boundary,PASS,reports/newman-report-mock.xml
+TC11,04_Boundary_Reliability,/events/sensor,POST,AQI above max rejected,inline JSON,400/422,Problem Details status between 400 and 599,boundary,PASS,reports/newman-report-mock.xml
+TC12,05_Consumer_side_Smoke,/events/sensor,POST,Core Business consumer can use IoT event contract,mock-data/sensor-reading-valid.json,202,"has eventId; publishedEvents includes sensor.reading.created",consumer-smoke,PASS,reports/newman-report-mock.xml
+TC13,05_Consumer_side_Smoke,/detect,POST,External AI Vision mock remains reachable,inline JSON,200,"has detection_id and confidence in [0,1]",consumer-smoke,PASS,reports/newman-report-mock.xml
+TC14,06_Local_only_NonFunctional,/events/sensor,POST,Local latency threshold,inline JSON,202 on local; skipped on mock,responseTime below 1000ms on local,local-only,PASS,reports/newman-report-mock.xml

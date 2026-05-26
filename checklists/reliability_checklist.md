@@ -1,48 +1,50 @@
-# Reliability Checklist — FIT4110 Lab 03
+# Reliability Checklist - FIT4110 Lab 03
 
-Điền checklist này trước khi nộp Lab 03.
+Student: Nguyen Thi Thanh Nha  
+Group: Nhom 8 (B1)  
+Service: IoT Ingestion
 
-## 1. Functional tests
+## 1. Functional Tests
 
-- [ ] Có test cho endpoint health.
-- [ ] Có test happy path cho endpoint chính.
-- [ ] Có kiểm tra status code 2xx.
-- [ ] Có kiểm tra field quan trọng trong response.
-- [ ] Có ít nhất 1 test đọc dữ liệu danh sách hoặc chi tiết.
+- [x] Co test cho endpoint health.
+- [x] Co test happy path cho endpoint chinh `POST /events/sensor`.
+- [x] Co kiem tra status code 2xx.
+- [x] Co kiem tra field quan trong trong response: `eventId`, `status`, `publishedEvents`, `acceptedAt`.
+- [x] Co test doc du lieu chi tiet qua `GET /telemetry/{eventId}` va device status qua `GET /devices/{deviceId}`.
 
-## 2. Auth tests
+## 2. Auth Tests
 
-- [ ] Có test thiếu token.
-- [ ] Có test sai token hoặc token rỗng.
-- [ ] Endpoint public được khai báo rõ nếu không cần auth.
-- [ ] Test thể hiện đúng expected status 401/403.
+- [x] Co test thieu token.
+- [x] Co test sai token.
+- [x] Endpoint public `/health` duoc khai bao khong can auth.
+- [x] Test the hien expected status 401/403 tren local service; tren mock duoc skip co giai thich vi Prism khong enforce auth that.
 
-## 3. Negative tests
+## 3. Negative Tests
 
-- [ ] Có test thiếu field bắt buộc.
-- [ ] Có test sai kiểu dữ liệu.
-- [ ] Có test sai enum hoặc giá trị ngoài miền.
-- [ ] Lỗi trả về theo cùng một error model.
+- [x] Co test thieu field bat buoc `deviceId`.
+- [x] Co test sai enum `sensorType`.
+- [x] Co test gia tri ngoai mien cho boundary AQI.
+- [x] Loi tra ve theo Problem Details compatible model.
 
-## 4. Boundary tests
+## 4. Boundary Tests
 
-- [ ] Có test min/max hoặc dữ liệu sát ngưỡng.
-- [ ] Có test limit/pagination nếu endpoint có danh sách.
-- [ ] Có test payload lớn hoặc metadata thiếu.
-- [ ] Có ghi chú kỳ vọng xử lý dữ liệu biên.
+- [x] Co test gia tri sat nguong: `AIR_QUALITY` value `100000`.
+- [x] Co test vuot nguong: `AIR_QUALITY` value `100001`.
+- [x] Co test metadata hop le trong payload.
+- [x] Co ghi chu ky vong xu ly du lieu bien trong `templates/test-case-matrix.csv`.
 
-## 5. Reliability tests cơ bản
+## 5. Reliability Tests Co Ban
 
-- [ ] Có kiểm tra response time.
-- [ ] Có mô tả timeout mong muốn.
-- [ ] Có test hoặc ghi chú retry/idempotency nếu phù hợp.
-- [ ] Có consumer-side smoke test với ít nhất 1 mock của nhóm khác.
+- [x] Co kiem tra response time cho local service trong folder `06_Local_only_NonFunctional`.
+- [x] Co mo ta timeout mong muon trong README/GitHub Actions bang `wait-on`.
+- [x] Co test/ghi chu idempotency qua header `Idempotency-Key`.
+- [x] Co consumer-side smoke test voi mock provider khac va IoT provider contract.
 
 ## 6. Evidence
 
-- [ ] Collection export JSON.
-- [ ] Environment mock export JSON.
-- [ ] Environment local export JSON.
-- [ ] Newman report XML/HTML.
-- [ ] Test-case matrix đã điền.
-- [ ] Biên bản handshake đã điền.
+- [x] Collection export JSON.
+- [x] Environment mock export JSON.
+- [x] Environment local export JSON.
+- [x] Newman report XML/HTML duoc sinh trong `reports/`.
+- [x] Test-case matrix da dien.
+- [x] Bien ban handshake da dien.
