@@ -1,56 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="FIT4110 Lab03 - Group 8 IoT Ingestion Contract Tests" tests="14" time="0.201">
-  <testsuite name="00_Health / GET /health - service is alive" id="1997ed91-af52-46b5-95bb-6d03fc1b0619" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.034">
-    <testcase name="Status code is 200" time="0.034" classname="00HealthGetHealthServiceIsAlive"/>
-    <testcase name="Response identifies IoT Ingestion" time="0.034" classname="00HealthGetHealthServiceIsAlive"/>
+<testsuites name="FIT4110 Lab03 - Group 8 IoT Ingestion Contract Tests" tests="14" time="0.206">
+  <testsuite name="00_Health / GET /health - service is alive" id="f755e4d1-9bac-4e77-8176-53d65193293b" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.029">
+    <testcase name="Status code is 200" time="0.029" classname="00HealthGetHealthServiceIsAlive"/>
+    <testcase name="Response identifies IoT Ingestion" time="0.029" classname="00HealthGetHealthServiceIsAlive"/>
   </testsuite>
-  <testsuite name="01_Functional / POST /events/sensor - accepts temperature event" id="cecdb1c2-d273-41a4-b953-8d5e28bca80b" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.008">
-    <testcase name="Status code is 202" time="0.008" classname="01FunctionalPostEventsSensorAcceptsTemperatureEvent"/>
-    <testcase name="Response has accepted event metadata" time="0.008" classname="01FunctionalPostEventsSensorAcceptsTemperatureEvent"/>
+  <testsuite name="01_Functional / POST /events/sensor - accepts temperature event" id="a392d5f1-40b6-470e-a683-183eb871e5a1" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.038">
+    <testcase name="Status code is 202" time="0.038" classname="01FunctionalPostEventsSensorAcceptsTemperatureEvent"/>
+    <testcase name="Response has accepted event metadata" time="0.038" classname="01FunctionalPostEventsSensorAcceptsTemperatureEvent"/>
   </testsuite>
-  <testsuite name="01_Functional / POST /telemetry - accepts motion telemetry" id="3349d514-267c-498e-a8f5-71dbe99b485a" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.006">
-    <testcase name="Status code is 202" time="0.006" classname="01FunctionalPostTelemetryAcceptsMotionTelemetry"/>
-    <testcase name="Response has async publication list" time="0.006" classname="01FunctionalPostTelemetryAcceptsMotionTelemetry"/>
+  <testsuite name="01_Functional / POST /telemetry - accepts motion telemetry" id="069abcac-6c52-40ad-b0e2-90b935a8aaf6" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.018">
+    <testcase name="Status code is 202" time="0.018" classname="01FunctionalPostTelemetryAcceptsMotionTelemetry"/>
+    <testcase name="Response has async publication list" time="0.018" classname="01FunctionalPostTelemetryAcceptsMotionTelemetry"/>
   </testsuite>
-  <testsuite name="01_Functional / GET /telemetry/{eventId} - returns audit detail" id="7bd4220b-c8ff-4a60-9995-d9522ee531b8" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.025">
-    <testcase name="Status code is 200" time="0.025" classname="01FunctionalGetTelemetryEventIdReturnsAuditDetail"/>
-    <testcase name="Audit response has normalized measurement" time="0.025" classname="01FunctionalGetTelemetryEventIdReturnsAuditDetail"/>
+  <testsuite name="01_Functional / GET /telemetry/{eventId} - returns audit detail" id="992c438e-b060-47d0-81b3-b768f73d2c06" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.014">
+    <testcase name="Status code is 200" time="0.014" classname="01FunctionalGetTelemetryEventIdReturnsAuditDetail"/>
+    <testcase name="Audit response has normalized measurement" time="0.014" classname="01FunctionalGetTelemetryEventIdReturnsAuditDetail"/>
   </testsuite>
-  <testsuite name="01_Functional / GET /devices/{deviceId} - returns device status" id="fae16712-d7f5-460a-aa87-618b17f82617" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.005">
-    <testcase name="Status code is 200" time="0.005" classname="01FunctionalGetDevicesDeviceIdReturnsDeviceStatus"/>
-    <testcase name="Device response has status fields" time="0.005" classname="01FunctionalGetDevicesDeviceIdReturnsDeviceStatus"/>
+  <testsuite name="01_Functional / GET /devices/{deviceId} - returns device status" id="52a6782b-40a1-47e5-baa3-87149bdc41bf" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.011">
+    <testcase name="Status code is 200" time="0.011" classname="01FunctionalGetDevicesDeviceIdReturnsDeviceStatus"/>
+    <testcase name="Device response has status fields" time="0.011" classname="01FunctionalGetDevicesDeviceIdReturnsDeviceStatus"/>
   </testsuite>
-  <testsuite name="02_Auth / POST /events/sensor - missing token is rejected on real service" id="1dc9bbe5-28f3-4f31-8377-a4d5ed580a79" timestamp="2026-05-26T04:18:37.931Z" tests="1" failures="0" errors="0" time="0.019">
-    <testcase name="Skipped on mock: Prism does not enforce real auth" time="0.019" classname="02AuthPostEventsSensorMissingTokenIsRejectedOnRealService"/>
+  <testsuite name="02_Auth / POST /events/sensor - missing token is rejected on real service" id="10ddf57d-5116-4ac2-af4d-149f5b3429d7" timestamp="2026-05-26T04:29:54.931Z" tests="1" failures="0" errors="0" time="0.017">
+    <testcase name="Skipped on mock: Prism does not enforce real auth" time="0.017" classname="02AuthPostEventsSensorMissingTokenIsRejectedOnRealService"/>
   </testsuite>
-  <testsuite name="02_Auth / POST /events/sensor - invalid token is rejected on real service" id="9a5d6d0f-95bd-4e9a-87b9-89569a62b3ac" timestamp="2026-05-26T04:18:37.931Z" tests="1" failures="0" errors="0" time="0.005">
-    <testcase name="Skipped on mock: invalid token requires real auth middleware" time="0.005" classname="02AuthPostEventsSensorInvalidTokenIsRejectedOnRealService"/>
+  <testsuite name="02_Auth / POST /events/sensor - invalid token is rejected on real service" id="f3157dcb-961d-42b3-9e0e-699e2d8f9e8c" timestamp="2026-05-26T04:29:54.931Z" tests="1" failures="0" errors="0" time="0.007">
+    <testcase name="Skipped on mock: invalid token requires real auth middleware" time="0.007" classname="02AuthPostEventsSensorInvalidTokenIsRejectedOnRealService"/>
   </testsuite>
-  <testsuite name="03_Negative / POST /events/sensor - missing deviceId returns validation error" id="9b4a4449-771d-4678-be93-4f68090d525c" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.010">
-    <testcase name="Invalid payload returns client error" time="0.010" classname="03NegativePostEventsSensorMissingDeviceIdReturnsValidationError"/>
-    <testcase name="Error response follows Problem Details shape" time="0.010" classname="03NegativePostEventsSensorMissingDeviceIdReturnsValidationError"/>
+  <testsuite name="03_Negative / POST /events/sensor - missing deviceId returns validation error" id="8574acec-04b7-475c-ba21-b51fd322292e" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.013">
+    <testcase name="Invalid payload returns client error" time="0.013" classname="03NegativePostEventsSensorMissingDeviceIdReturnsValidationError"/>
+    <testcase name="Error response follows Problem Details shape" time="0.013" classname="03NegativePostEventsSensorMissingDeviceIdReturnsValidationError"/>
   </testsuite>
-  <testsuite name="03_Negative / POST /events/sensor - wrong sensorType enum returns validation error" id="258c67ff-b178-4684-9369-b5e0ab1b81ea" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.011">
-    <testcase name="Wrong enum returns client error" time="0.011" classname="03NegativePostEventsSensorWrongSensorTypeEnumReturnsValidationError"/>
-    <testcase name="Error response has detail or validation status" time="0.011" classname="03NegativePostEventsSensorWrongSensorTypeEnumReturnsValidationError"/>
+  <testsuite name="03_Negative / POST /events/sensor - wrong sensorType enum returns validation error" id="d96bac17-2bf7-49f0-b6ea-5655314a7f8c" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.013">
+    <testcase name="Wrong enum returns client error" time="0.013" classname="03NegativePostEventsSensorWrongSensorTypeEnumReturnsValidationError"/>
+    <testcase name="Error response has detail or validation status" time="0.013" classname="03NegativePostEventsSensorWrongSensorTypeEnumReturnsValidationError"/>
   </testsuite>
-  <testsuite name="04_Boundary_Reliability / POST /events/sensor - boundary AQI value is accepted" id="8ea5dfc5-4ff8-45a8-bdf0-7d0c50a32bb6" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.006">
-    <testcase name="Boundary max value returns accepted" time="0.006" classname="04BoundaryReliabilityPostEventsSensorBoundaryAqiValueIsAccepted"/>
-    <testcase name="Boundary response still queues async events" time="0.006" classname="04BoundaryReliabilityPostEventsSensorBoundaryAqiValueIsAccepted"/>
+  <testsuite name="04_Boundary_Reliability / POST /events/sensor - boundary AQI value is accepted" id="650d47c8-fa58-49a1-a681-a7445f9b33ad" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.008">
+    <testcase name="Boundary max value returns accepted" time="0.008" classname="04BoundaryReliabilityPostEventsSensorBoundaryAqiValueIsAccepted"/>
+    <testcase name="Boundary response still queues async events" time="0.008" classname="04BoundaryReliabilityPostEventsSensorBoundaryAqiValueIsAccepted"/>
   </testsuite>
-  <testsuite name="04_Boundary_Reliability / POST /events/sensor - value above max is rejected" id="9edf34c8-9893-4add-96b0-12e98d37c9e6" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.013">
-    <testcase name="Out-of-range value returns client error" time="0.013" classname="04BoundaryReliabilityPostEventsSensorValueAboveMaxIsRejected"/>
-    <testcase name="Boundary test checks response body" time="0.013" classname="04BoundaryReliabilityPostEventsSensorValueAboveMaxIsRejected"/>
+  <testsuite name="04_Boundary_Reliability / POST /events/sensor - value above max is rejected" id="33a315cc-b42c-4950-b8cd-8e2d433d12a8" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.010">
+    <testcase name="Out-of-range value returns client error" time="0.010" classname="04BoundaryReliabilityPostEventsSensorValueAboveMaxIsRejected"/>
+    <testcase name="Boundary test checks response body" time="0.010" classname="04BoundaryReliabilityPostEventsSensorValueAboveMaxIsRejected"/>
   </testsuite>
-  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - Core Business receives sensor event shape" id="66a9f980-99f9-4d81-86a5-c38c76f5b43e" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.004">
-    <testcase name="Provider mock accepts contract used by Core Business consumer" time="0.004" classname="05ConsumerSideSmokeConsumerSmokeCoreBusinessReceivesSensorEventShape"/>
-    <testcase name="Consumer can read event id and published event names" time="0.004" classname="05ConsumerSideSmokeConsumerSmokeCoreBusinessReceivesSensorEventShape"/>
+  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - Core Business receives sensor event shape" id="f9e6ca41-f455-45f4-9db7-e12c4a803538" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.006">
+    <testcase name="Provider mock accepts contract used by Core Business consumer" time="0.006" classname="05ConsumerSideSmokeConsumerSmokeCoreBusinessReceivesSensorEventShape"/>
+    <testcase name="Consumer can read event id and published event names" time="0.006" classname="05ConsumerSideSmokeConsumerSmokeCoreBusinessReceivesSensorEventShape"/>
   </testsuite>
-  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - AI Vision mock remains reachable dependency example" id="f0e4a33c-e86e-4003-956e-ed9ae96abd39" timestamp="2026-05-26T04:18:37.931Z" tests="2" failures="0" errors="0" time="0.050">
-    <testcase name="Consumer receives success from external provider mock" time="0.050" classname="05ConsumerSideSmokeConsumerSmokeAiVisionMockRemainsReachableDependencyExample"/>
-    <testcase name="Consumer can parse provider fields" time="0.050" classname="05ConsumerSideSmokeConsumerSmokeAiVisionMockRemainsReachableDependencyExample"/>
+  <testsuite name="05_Consumer_side_Smoke / Consumer smoke - AI Vision mock remains reachable dependency example" id="0ab5f314-38c0-4fb3-8873-be189bf30672" timestamp="2026-05-26T04:29:54.931Z" tests="2" failures="0" errors="0" time="0.016">
+    <testcase name="Consumer receives success from external provider mock" time="0.016" classname="05ConsumerSideSmokeConsumerSmokeAiVisionMockRemainsReachableDependencyExample"/>
+    <testcase name="Consumer can parse provider fields" time="0.016" classname="05ConsumerSideSmokeConsumerSmokeAiVisionMockRemainsReachableDependencyExample"/>
   </testsuite>
-  <testsuite name="06_Local_only_NonFunctional / POST /events/sensor - local response time threshold" id="31f66954-19a4-49d1-bb0d-055cd88c0a60" timestamp="2026-05-26T04:18:37.931Z" tests="1" failures="0" errors="0" time="0.005">
-    <testcase name="Skipped on mock: mock latency is not evidence of real service reliability" time="0.005" classname="06LocalOnlyNonFunctionalPostEventsSensorLocalResponseTimeThreshold"/>
+  <testsuite name="06_Local_only_NonFunctional / POST /events/sensor - local response time threshold" id="3880d803-d446-4f39-9aca-3d05e6b19fa5" timestamp="2026-05-26T04:29:54.931Z" tests="1" failures="0" errors="0" time="0.006">
+    <testcase name="Skipped on mock: mock latency is not evidence of real service reliability" time="0.006" classname="06LocalOnlyNonFunctionalPostEventsSensorLocalResponseTimeThreshold"/>
   </testsuite>
 </testsuites>
